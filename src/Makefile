@@ -13,6 +13,10 @@ dependencies:
 build:
 	env GOOS=linux GOARCH=amd64 go build -o ./${BINARY_NAME} .
 
+.PHONY: mock
+mock:	
+	mockgen -package scrappermock github.com/gufranmirza/imdb-cli/src/scrapper Scrapper > scrapper/scrappermock/mock.go
+
 packages = \
 	./scrapper\
 
