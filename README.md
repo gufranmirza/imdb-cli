@@ -67,3 +67,9 @@ make all
 ```
 
 It will rebuild the project and create the `imdb-cli` binary with latest changes
+
+## Testing
+Run the below command to run the tests
+```
+make test
+```
