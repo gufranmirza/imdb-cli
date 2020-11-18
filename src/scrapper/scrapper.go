@@ -15,8 +15,8 @@ func NewScrapper() Scrapper {
 	return &scrap{}
 }
 
-// GetTopMovies returns the list of top movies for a given url
-func (s *scrap) GetTopMovies(url string) ([]string, error) {
+// GetTopMoviesURL returns the list of top movies for a given url
+func (s *scrap) GetTopMoviesURL(url string) ([]string, error) {
 	movies := make([]string, 250)
 	// Get the HTML
 	resp, err := http.Get(url)

@@ -17,8 +17,8 @@ var (
 	limit int
 )
 
-// migrateCmd represents the migrate command
-var migrateCmd = &cobra.Command{
+// topMovies represents the top movies command
+var topMovies = &cobra.Command{
 	Use:   "top-movies",
 	Short: "Fetch top IMDB movies",
 	Long:  `Command line interface to fetch top movies from given IMDB Url`,
@@ -28,10 +28,10 @@ var migrateCmd = &cobra.Command{
 }
 
 func init() {
-	RootCmd.AddCommand(migrateCmd)
+	RootCmd.AddCommand(topMovies)
 
-	migrateCmd.Flags().StringVar(&url, "url", "", "IMDB url of top movies")
-	migrateCmd.Flags().IntVar(&limit, "limit", 10, "Display limit")
+	topMovies.Flags().StringVar(&url, "url", "", "IMDB url of top movies")
+	topMovies.Flags().IntVar(&limit, "limit", 10, "Display limit")
 }
 
 func run() {
@@ -43,7 +43,7 @@ func run() {
 		os.Exit(1)
 	}
 
-	links, err := scrap.GetTopMovies(url)
+	links, err := scrap.GetTopMoviesURL(url)
 	if err != nil {
 		fmt.Printf("[ERROR] Failed to fetch URL %s with error %v\n", url, err)
 		os.Exit(1)
